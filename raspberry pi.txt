@@ -1,0 +1,11 @@
+sudo fswebcam -S 100 -r 1280*720 image.jpg
+sudo convert -units PixelsPerInch image.jpg -density 300 image.jpg
+sudo tesseract image.jpg image
+sudo cat image.txt
+sudo espeak -f image.txt // espeak -ven-us+f1 -s 10 -f image.txt
+
+
+convert \( mayank.jpg -colorspace gray -type grayscale -contrast-stretch 0 \) \
+\( -clone 0 -colorspace gray -negate -lat $10x$10+$5% -contrast-stretch 0 \) \
+-compose copy_opacity -composite -fill "$bgcolor" -opaque none +matte \
+-deskew 40% -sharpen 0x1 \ output.jpg
